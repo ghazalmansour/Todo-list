@@ -1,5 +1,6 @@
 import React from 'react';
 import Todos from './Todos';
+import axios from 'axios';
 
 class App extends React.Component { 
   state = {
@@ -9,11 +10,19 @@ class App extends React.Component {
       {id:3, content: 'Take out the trash'},
     ]
   }
+
+  componentDidMount() {
+  axios.get('http://localhost:4000/todos')
+  .then(response => {
+    console.log(response)
+    this.setState({ideas: response.data})
+  })
+  .catch(error => console.log(error))
+}
+
 render (){
   return (
     <div className="App">
-      <h1 className= "center blue-text">
-       </h1>
 <Todos todos={this.state.todos}/>
     </div>
   );

@@ -6,7 +6,7 @@ const todolist = todos.length ? (
 
 todos.map(todo => {
     return (
-       < div className="collection.item" key={todo.id}>
+       < div >
 <span>{todo.content}</span>
        </div>
     )
@@ -14,7 +14,6 @@ todos.map(todo => {
 
 ) : (
     <p className= "middle"> 
-    No todo's left
     </p>
 )
     return(
